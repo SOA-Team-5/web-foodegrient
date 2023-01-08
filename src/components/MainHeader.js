@@ -4,10 +4,24 @@ import "./../App.css";
 
 const Header = (props) => {
   const [search, setSerach] = useState(null);
+  const [MenuChecked, setmenuChecked] = useState(false);
+  const [DrinkChecked, setdrinkChecked] = useState(false);
+
   const handleSearch = (e) => {
     console.log(e.target, "changeVal");
     setSerach(e.target.value);
   };
+  const menuOnChange = () => {
+    setmenuChecked(!MenuChecked);
+  };
+  const drinkOnChange = () => {
+    setdrinkChecked(!DrinkChecked);
+  };
+
+  function vail(){
+    if((DrinkChecked || MenuChecked)===false)
+    alert("error")
+  }
   return (
     <div className="hiding">
       <h1 className="" style={{ marginBottom: "20px" }}>
@@ -30,7 +44,7 @@ const Header = (props) => {
           onChange={handleSearch}
         />
 
-        <Link to={{ pathname: `/result/${search}` }} className="btn  btn-dark">
+        <Link to={{ pathname: `/result/${search}` }} className="btn  btn-dark" onClick={vail()}>
           Search Menu
         </Link>
       </div>
@@ -40,6 +54,8 @@ const Header = (props) => {
           type="checkbox"
           id="inlineCheckbox1"
           value="option1"
+          checked={MenuChecked}
+          onChange={menuOnChange}
         />
         <label class="form-check-label" for="inlineCheckbox1">
           Drink
@@ -51,6 +67,8 @@ const Header = (props) => {
           type="checkbox"
           id="inlineCheckbox2"
           value="option2"
+          checked={DrinkChecked}
+          onChange={drinkOnChange}
         />
         <label class="form-check-label" for="inlineCheckbox2">
           Menu
