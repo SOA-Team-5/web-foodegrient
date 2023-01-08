@@ -5,7 +5,7 @@ import Header from "./components/MainHeader";
 import Recipes from "./components/Home";
 import Result from "./components/Result";
 import NotFound from "./components/NotFound";
-import Axios from "axios";
+
 
 function App() {
 
