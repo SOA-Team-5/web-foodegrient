@@ -11,14 +11,16 @@ const Header = (props) => {
 
   return (
     <div className="resultHeader">
-      <h1 className="" style={{ marginBottom: "20px" }}>
-        <img
-          className="result-header-food-icon img-fluid"
-          src="../fast-food-svgrepo-com.svg"
-          alt=""
-        />
-        Foodegrient
-      </h1>
+      <Link to="/" style={{ textDecoration: 'none'}}>
+        <h1 className="" style={{ marginBottom: "20px", color: 'white' }}>
+          <img
+            className="result-header-food-icon img-fluid"
+            src="../fast-food-svgrepo-com.svg"
+            alt=""
+          />
+          Foodegrient
+        </h1>
+      </Link>
 
       <div className="input-group w-50 m-auto">
         <input
