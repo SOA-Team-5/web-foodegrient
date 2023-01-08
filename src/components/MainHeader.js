@@ -1,13 +1,37 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./../App.css";
+import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
   const [search, setSerach] = useState(null);
+  const [MenuChecked, setmenuChecked] = useState(false);
+  const [DrinkChecked, setdrinkChecked] = useState(false);
+
   const handleSearch = (e) => {
     console.log(e.target, "changeVal");
     setSerach(e.target.value);
   };
+  const menuOnChange = () => {
+    setmenuChecked(!MenuChecked);
+  };
+  const drinkOnChange = () => {
+    setdrinkChecked(!DrinkChecked);
+  };
+
+  const navigate = useNavigate();
+
+  function handleBtn(){
+    // history.pushState()
+    if((MenuChecked || DrinkChecked)===false){
+      alert("please select one or more menu type ")
+    }
+    else{
+      navigate(`/result/${search}`);
+    }
+    
+    
+  }
   return (
     <div className="hiding">
       <h1 className="" style={{ marginBottom: "20px" }}>
@@ -30,9 +54,37 @@ const Header = (props) => {
           onChange={handleSearch}
         />
 
-        <Link to={{ pathname: `/result/${search}` }} className="btn  btn-dark">
+        <button  className="btn  btn-dark" 
+        onClick={handleBtn.bind(this)}
+        >
           Search Menu
-        </Link>
+        </button>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox1"
+          value="option1"
+          checked={MenuChecked}
+          onChange={menuOnChange}
+        />
+        <label class="form-check-label" for="inlineCheckbox1">
+          Drink
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="inlineCheckbox2"
+          value="option2"
+          checked={DrinkChecked}
+          onChange={drinkOnChange}
+        />
+        <label class="form-check-label" for="inlineCheckbox2">
+          Menu
+        </label>
       </div>
       <div class="form-check form-check-inline">
         <input
