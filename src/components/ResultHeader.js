@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./../App.css";
 
 const Header = (props) => {
-  const [search, setSerach] = useState("egg");
+  const [search, setSerach] = useState(null);
   const handleSearch = (e) => {
     console.log(e.target, "changeVal");
     setSerach(e.target.value);
