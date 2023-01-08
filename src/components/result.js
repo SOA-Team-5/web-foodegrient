@@ -44,7 +44,8 @@ function Result() {
         </div>
         <div className="card-body">
           <h5 className="card-title">{menuData[i].title}</h5>
-          <li class="list-group-item">Likes: {menuData[i].likes}</li>
+          <li class="list-group-item">Likes: {menuData[i].likes} <span class="badge bg-primary rounded-pill">14</span></li>
+          
           <li class="list-group-item">Unlikes: {menuData[i].unlikes}</li>
         </div>
       </div>
