@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./../App.css";
+import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
   const [search, setSerach] = useState(null);
@@ -18,9 +19,11 @@ const Header = (props) => {
     setdrinkChecked(!DrinkChecked);
   };
 
-  function vail(){
-    if((DrinkChecked || MenuChecked)===false)
-    alert("error")
+  const navigate = useNavigate();
+
+  function handleBtn(){
+    // history.pushState()
+    navigate(`/result/${search}`);
   }
   return (
     <div className="hiding">
@@ -44,9 +47,11 @@ const Header = (props) => {
           onChange={handleSearch}
         />
 
-        <Link to={{ pathname: `/result/${search}` }} className="btn  btn-dark" onClick={vail()}>
+        <button  className="btn  btn-dark" 
+        onClick={handleBtn.bind(this)}
+        >
           Search Menu
-        </Link>
+        </button>
       </div>
       <div class="form-check form-check-inline">
         <input
@@ -55,7 +60,7 @@ const Header = (props) => {
           id="inlineCheckbox1"
           value="option1"
           checked={MenuChecked}
-          onChange={menuOnChange}
+          // onChange={menuOnChange}
         />
         <label class="form-check-label" for="inlineCheckbox1">
           Drink
@@ -68,7 +73,7 @@ const Header = (props) => {
           id="inlineCheckbox2"
           value="option2"
           checked={DrinkChecked}
-          onChange={drinkOnChange}
+          // onChange={drinkOnChange}
         />
         <label class="form-check-label" for="inlineCheckbox2">
           Menu
