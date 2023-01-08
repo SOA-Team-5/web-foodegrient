@@ -23,7 +23,14 @@ const Header = (props) => {
 
   function handleBtn(){
     // history.pushState()
-    navigate(`/result/${search}`);
+    if((MenuChecked || DrinkChecked)===false){
+      alert("please select one or more menu type ")
+    }
+    else{
+      navigate(`/result/${search}`);
+    }
+    
+    
   }
   return (
     <div className="hiding">
@@ -60,7 +67,7 @@ const Header = (props) => {
           id="inlineCheckbox1"
           value="option1"
           checked={MenuChecked}
-          // onChange={menuOnChange}
+          onChange={menuOnChange}
         />
         <label class="form-check-label" for="inlineCheckbox1">
           Drink
@@ -73,7 +80,7 @@ const Header = (props) => {
           id="inlineCheckbox2"
           value="option2"
           checked={DrinkChecked}
-          // onChange={drinkOnChange}
+          onChange={drinkOnChange}
         />
         <label class="form-check-label" for="inlineCheckbox2">
           Menu
