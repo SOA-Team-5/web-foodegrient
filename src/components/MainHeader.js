@@ -43,23 +43,24 @@ const Header = (props) => {
         Foodegrient
       </h1>
 
-      <div className="input-group w-50 m-auto">
+      <div className="w-50 m-auto" style={{ justifyContent: 'center', alignItems: 'center'}}>
         <input
           type="text"
-          style={{ width: "50%" }}
+          style={{ width: "90%", marginInline:'5%'}}
           className="form-control"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
           value={search}
           onChange={handleSearch}
         />
-
-        <button  className="btn  btn-dark" 
+        <p></p>
+        <button className="btn  btn-dark"  
         onClick={handleBtn.bind(this)}
         >
           Search Menu
         </button>
       </div>
+      <p></p>
       <div class="form-check form-check-inline">
         <input
           class="form-check-input"
@@ -83,29 +84,7 @@ const Header = (props) => {
           onChange={drinkOnChange}
         />
         <label class="form-check-label" for="inlineCheckbox2">
-          Menu
-        </label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="inlineCheckbox1"
-          value="option1"
-        />
-        <label class="form-check-label" for="inlineCheckbox1">
-          Drink
-        </label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="inlineCheckbox2"
-          value="option2"
-        />
-        <label class="form-check-label" for="inlineCheckbox2">
-          Menu
+          Recipe
         </label>
       </div>
     </div>
