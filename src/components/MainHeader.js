@@ -27,7 +27,7 @@ const Header = (props) => {
       alert("please select one or more menu type ")
     }
     else {
-      navigate(`/result/${search}?drink=${!DrinkChecked}&recipe=${!MenuChecked}`);
+      navigate(`/result/${search}?drink=${DrinkChecked}&recipe=${MenuChecked}`);
     }
   }
   return (
