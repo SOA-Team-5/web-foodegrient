@@ -29,7 +29,7 @@ const Header = (props) => {
       alert("Please input the keywords")
     }
     else {
-      navigate(`/result/${search}?drink=${MenuChecked}&recipe=${DrinkChecked}`);
+      navigate(`/result/${search}?drink=${DrinkChecked}&recipe=${MenuChecked}`);
     }
   }
   return (
