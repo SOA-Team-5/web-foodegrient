@@ -25,7 +25,7 @@ const Header = (props) => {
     // history.pushState()
     if ((MenuChecked || DrinkChecked) === false) {
       alert("Please select one or more menu type ")
-    }else if(search===''||search===null){
+    } else if (search === '' || search === null) {
       alert("Please input the keywords")
     }
     else {
@@ -71,7 +71,7 @@ const Header = (props) => {
           onClick={menuOnChange}
         />
         <label class="form-check-label" for="inlineCheckbox1">
-          Drink
+          Recipe
         </label>
       </div>
       <div class="form-check form-check-inline">
@@ -84,7 +84,7 @@ const Header = (props) => {
           onClick={drinkOnChange}
         />
         <label class="form-check-label" for="inlineCheckbox2">
-          Recipe
+          Drink
         </label>
       </div>
     </div>
