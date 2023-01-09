@@ -24,7 +24,9 @@ const Header = (props) => {
   function handleBtn() {
     // history.pushState()
     if ((MenuChecked || DrinkChecked) === false) {
-      alert("please select one or more menu type ")
+      alert("Please select one or more menu type ")
+    }else if(search===''||search===null){
+      alert("Please input the keywords")
     }
     else {
       navigate(`/result/${search}?drink=${MenuChecked}&recipe=${DrinkChecked}`);
