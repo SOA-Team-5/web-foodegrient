@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
   const [search, setSerach] = useState(null);
-  const [MenuChecked, setmenuChecked] = useState(false);
-  const [DrinkChecked, setdrinkChecked] = useState(false);
+  const [MenuChecked, setmenuChecked] = useState(true);
+  const [DrinkChecked, setdrinkChecked] = useState(true);
 
   const handleSearch = (e) => {
     console.log(e.target, "changeVal");
@@ -21,16 +21,14 @@ const Header = (props) => {
 
   const navigate = useNavigate();
 
-  function handleBtn(){
+  function handleBtn() {
     // history.pushState()
-    if((MenuChecked || DrinkChecked)===false){
+    if ((MenuChecked || DrinkChecked) === false) {
       alert("please select one or more menu type ")
     }
-    else{
-      navigate(`/result/${search}`);
+    else {
+      navigate(`/result/${search}?drink=${!DrinkChecked}&recipe=${!MenuChecked}`);
     }
-    
-    
   }
   return (
     <div className="hiding">
@@ -43,10 +41,10 @@ const Header = (props) => {
         Foodegrient
       </h1>
 
-      <div className="w-50 m-auto" style={{ justifyContent: 'center', alignItems: 'center'}}>
+      <div className="w-50 m-auto" style={{ justifyContent: 'center', alignItems: 'center' }}>
         <input
           type="text"
-          style={{ width: "90%", marginInline:'5%'}}
+          style={{ width: "90%", marginInline: '5%' }}
           className="form-control"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
@@ -54,8 +52,8 @@ const Header = (props) => {
           onChange={handleSearch}
         />
         <p></p>
-        <button className="btn  btn-dark"  
-        onClick={handleBtn.bind(this)}
+        <button className="btn  btn-dark"
+          onClick={handleBtn.bind(this)}
         >
           Search Menu
         </button>

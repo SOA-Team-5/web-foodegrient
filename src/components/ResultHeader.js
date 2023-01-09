@@ -11,7 +11,7 @@ const Header = (props) => {
 
   return (
     <div className="resultHeader">
-      <Link to="/" style={{ textDecoration: 'none'}}>
+      <Link to="/" style={{ textDecoration: 'none' }}>
         <h1 className="" style={{ marginBottom: "20px", color: 'white' }}>
           <img
             className="result-header-food-icon img-fluid"
@@ -32,9 +32,12 @@ const Header = (props) => {
           value={search}
           onChange={handleSearch}
         />
-        <Link to={{ pathname: `/result/${search}` }} className="btn btn-dark">
+        <button className="btn btn-dark"
+          onClick={() => {
+            window.location.replace(`/result/${search}`);
+          }}>
           Search
-        </Link>
+        </button>
       </div>
     </div>
   );
