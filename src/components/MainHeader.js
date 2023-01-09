@@ -27,7 +27,7 @@ const Header = (props) => {
       alert("please select one or more menu type ")
     }
     else {
-      navigate(`/result/${search}?drink=${DrinkChecked}&recipe=${MenuChecked}`);
+      navigate(`/result/${search}?drink=${MenuChecked}&recipe=${DrinkChecked}`);
     }
   }
   return (
@@ -66,7 +66,7 @@ const Header = (props) => {
           id="inlineCheckbox1"
           value="option1"
           checked={MenuChecked}
-          onChange={menuOnChange}
+          onClick={menuOnChange}
         />
         <label class="form-check-label" for="inlineCheckbox1">
           Drink
@@ -79,7 +79,7 @@ const Header = (props) => {
           id="inlineCheckbox2"
           value="option2"
           checked={DrinkChecked}
-          onChange={drinkOnChange}
+          onClick={drinkOnChange}
         />
         <label class="form-check-label" for="inlineCheckbox2">
           Recipe
